@@ -5,6 +5,7 @@ from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.express as px
 import plotly.graph_objs as go
+from flask import send_from_directory
 import logging
 
 # Initialize the Dash app
@@ -41,6 +42,15 @@ gauge1 = go.Figure(go.Indicator(
 
 # Define the target sample size
 TARGET_SAMPLE_SIZE = 1500
+
+# Favicon route to resolve missing favicon error
+@server.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        directory=app.assets_folder,
+        path='favicon.ico',
+        mimetype='image/vnd.microsoft.icon'
+    )
 
 # Layout of the Dash App
 app.layout = html.Div([
@@ -82,7 +92,7 @@ app.layout = html.Div([
 )
 def update_fireworks(gauge_figure):
     # Extract the gauge value (number of households contacted)
-    value = gauge1.data[0]['value']
+    value = hh_num_count  # Directly use pre-calculated value
     
     # If the value meets or exceeds the target
     if value >= TARGET_SAMPLE_SIZE:
