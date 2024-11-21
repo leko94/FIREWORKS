@@ -45,7 +45,7 @@ gauge1 = go.Figure(go.Indicator(
     number={'valueformat': ','}
 ))
 
-# Layout of the Dash App
+# Update the layout of the Dash App to make the gauge chart take up the full width
 app.layout = html.Div([
     html.H1("Nutrint Dashboard", style={'text-align': 'center'}),
     top_bar,
@@ -71,8 +71,8 @@ app.layout = html.Div([
                  'margin-top': '20px',
              }),
 
-    # Add the gauge chart
-    dcc.Graph(figure=gauge1),
+    # Add the gauge chart, modify to fit the full width
+    dcc.Graph(figure=gauge1, style={'width': '100%', 'height': '400px', 'margin': '0', 'padding': '0'}),
 ])
 
 # Run the Dash app
