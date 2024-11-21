@@ -72,7 +72,7 @@ app.layout = html.Div([
              }),
 
     # Add the gauge chart, modify to fit the full width
-    dcc.Graph(figure=gauge1, style={'width': '100%', 'height': '400px', 'margin': '0', 'padding': '0'}),
+    dcc.Graph(figure=gauge1, style={'width': '200%', 'height': '400px', 'margin': '0', 'padding': '0'}),
 ])
 
 # Run the Dash app
