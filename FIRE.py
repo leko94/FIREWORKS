@@ -3,7 +3,6 @@ import pandas as pd
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
-import plotly.express as px
 import plotly.graph_objs as go
 from flask import Response
 import logging
@@ -50,6 +49,29 @@ gauge1 = go.Figure(go.Indicator(
 app.layout = html.Div([
     html.H1("Nutrint Dashboard", style={'text-align': 'center'}),
     top_bar,
+
+    # Embed the fireworks video
+    html.Video(
+        src='/assets/fireworks.mp4',
+        autoPlay=True,
+        loop=True,
+        muted=True,
+        style={'width': '100%', 'height': 'auto', 'position': 'absolute', 'z-index': '-1'}
+    ),
+
+    # Add the Congratulations text with animation
+    html.Div("Congratulations! You have reached your target Sample Size for Nutrint!",
+             className="animated-text",
+             style={
+                 'position': 'relative',
+                 'text-align': 'center',
+                 'font-size': '48px',
+                 'color': 'gold',
+                 'z-index': '1',
+                 'margin-top': '20px',
+             }),
+
+    # Add the gauge chart
     dcc.Graph(figure=gauge1),
 ])
 
