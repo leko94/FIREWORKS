@@ -41,7 +41,7 @@ gauge1 = go.Figure(go.Indicator(
     mode="gauge+number",
     value=hh_num_count,
     title={'text': "Total Number of Household Contacted and had Completed Interviews"},
-    gauge={'axis': {'range': [0, 1500]}, 'bar': {'color': '#FF4500'}},  # Orange Red
+    gauge={'axis': {'range': [0, 2000]}, 'bar': {'color': '#FF4500'}},  # Orange Red
     number={'valueformat': ','}
 ))
 
@@ -60,7 +60,7 @@ app.layout = html.Div([
     ),
 
     # Add the Congratulations text with animation
-    html.Div("Congratulations! You have reached your target Sample Size for Nutrint!",
+    html.Div("Congratulations! You have reached your target Sample Size for DASH!",
              className="animated-text",
              style={
                  'position': 'relative',
