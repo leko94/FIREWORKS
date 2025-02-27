@@ -15,7 +15,7 @@ server = app.server  # Expose the server for WSGI
 logging.basicConfig(level=logging.DEBUG)
 
 # Load your CSV dataset
-data = pd.read_csv('Nutrint_ZA23112024Final.csv')
+data = pd.read_csv('DASH_ZA27022025.csv')
 
 # Handle favicon.ico requests without a file
 @server.route('/favicon.ico')
